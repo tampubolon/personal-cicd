@@ -11,15 +11,17 @@ terraform {
   required_version = ">= 0.13"
 
   backend "s3" {
-    bucket = "terraform"
-    key    = "pintu-infra/cloudamqp/vpc.tfstate"
+    bucket         = "terraform-martinus"
+    key            = "pintu-infra/cloudamqp/vpc.tfstate"
     region         = "ap-southeast-1"
     encrypt        = true
     dynamodb_table = "terraform-lock"
+    profile        = "martinus"
   }
 }
 
 provider "aws" {
   version = "~> 3.7"
   region  = "ap-southeast-1"
+  profile = "martinus"
 }
