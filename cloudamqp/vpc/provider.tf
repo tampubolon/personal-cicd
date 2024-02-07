@@ -1,14 +1,16 @@
 terraform {
+  required_version = "= 1.7.2"
 
   required_providers {
     aws = {
       source = "hashicorp/aws"
+      version = "~> 5.35.0"
     }
     cloudamqp = {
       source = "cloudamqp/cloudamqp"
+      version = "~> 1.29.3"
     }
   }
-  required_version = ">= 0.13"
 
   backend "s3" {
     bucket         = "terraform-martinus"
@@ -21,7 +23,6 @@ terraform {
 }
 
 provider "aws" {
-  version = "~> 3.7"
   region  = "ap-southeast-1"
   profile = "martinus"
 }
