@@ -18,11 +18,9 @@ terraform {
     region         = "ap-southeast-1"
     encrypt        = true
     dynamodb_table = "terraform-lock"
-    profile        = "default"
   }
 }
 
 provider "aws" {
   region  = "ap-southeast-1"
-  profile = "default"
 }
