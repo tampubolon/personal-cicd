@@ -7,6 +7,17 @@ locals {
     Attributes  = "vpc"
     Environment = "test"
   }
+
+  azs_count      = length(data.aws_availability_zones.available.names)
+  subnets_per_az = ceil(var.number_of_subnets / local.azs_count)
+}
+
+# Get availability zones in the region
+data "aws_availability_zones" "available" {}
+
+# Calculate number of subnets per AZ
+variable "number_of_subnets" {
+  default = 3
 }
 
 
@@ -38,6 +49,7 @@ resource "aws_subnet" "public" {
   count                   = 3
   vpc_id                  = aws_vpc.eks_vpc.id
   cidr_block              = cidrsubnet(aws_vpc.eks_vpc.cidr_block, 8, count.index)
+  availability_zone       = element(data.aws_availability_zones.available.names, count.index / local.subnets_per_az)
   map_public_ip_on_launch = true
 
   tags = merge({
@@ -49,9 +61,10 @@ resource "aws_subnet" "public" {
 
 # Create Private Subnets
 resource "aws_subnet" "private" {
-  count      = 3
-  vpc_id     = aws_vpc.eks_vpc.id
-  cidr_block = cidrsubnet(aws_vpc.eks_vpc.cidr_block, 8, count.index + 3)
+  count             = 3
+  vpc_id            = aws_vpc.eks_vpc.id
+  cidr_block        = cidrsubnet(aws_vpc.eks_vpc.cidr_block, 8, count.index + 3)
+  availability_zone = element(data.aws_availability_zones.available.names, count.index / local.subnets_per_az)
 
   tags = merge({
     Name = "Private-Subnet-${count.index}"
