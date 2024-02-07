@@ -27,8 +27,8 @@ provider "cloudamqp" {
 
 # Add instance to managed VPC
 resource "cloudamqp_instance" "pintu_test" {
-  name    = local.instance_name
-  plan    = local.rmq_plan
-  region  = local.region
-  tags    = ["terraform"]
+  name   = local.instance_name
+  plan   = local.rmq_plan
+  region = local.region
+  tags   = ["terraform"]
 }

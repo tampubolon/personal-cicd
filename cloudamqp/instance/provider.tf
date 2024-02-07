@@ -3,23 +3,23 @@ terraform {
 
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "~> 5.35.0"
     }
     cloudamqp = {
-      source = "cloudamqp/cloudamqp"
+      source  = "cloudamqp/cloudamqp"
       version = "~> 1.29.3"
     }
   }
 
   backend "s3" {
-    bucket         = "terraform-martinus"
-    key            = "pintu-infra/cloudamqp/vpc.tfstate"
-    region         = "ap-southeast-1"
-    encrypt        = true
+    bucket  = "terraform-martinus"
+    key     = "pintu-infra/cloudamqp/vpc.tfstate"
+    region  = "ap-southeast-1"
+    encrypt = true
   }
 }
 
 provider "aws" {
-  region  = "ap-southeast-1"
+  region = "ap-southeast-1"
 }
