@@ -17,7 +17,7 @@ locals {
 }
 
 data "aws_ssm_parameter" "api_key" {
-  name = "/iss/staging/cloudamqp/cloudamqp-key"
+  name = "/pintu/cloudamqp-api-key"
 }
 
 # Configure the CloudAMQP Provider
