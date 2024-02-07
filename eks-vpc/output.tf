@@ -39,7 +39,7 @@ output "private_subnet_2_id" {
   description = "Private Subnet ID"
 }
 
-ouput "igw_id" {
+output "igw_id" {
   value       = aws_internet_gateway.gw.id
   description = "Internet Gateway ID"
 }
