@@ -23,4 +23,4 @@ pipeline:
         docker_image_name: "docker:19.03.13"
         execute_commands:
           - "docker login -u mar3tin8 -p $DOCKERHUB_PASSWORD"
-          - "docker push mar3tin8/service-a:latest"
+          - "docker push mar3tin8/nodejs-app:latest"
