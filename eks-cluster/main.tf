@@ -1,11 +1,11 @@
 locals {
-  vpc_id          = "vpc-0ca2d1fea23bcd3a9"
-  public_subnets  = ["subnet-0c0f72c6359ad6085", "subnet-087efb745876fa202", "subnet-0fe65694cdabca319"]
+  vpc_id         = "vpc-0ca2d1fea23bcd3a9"
+  public_subnets = ["subnet-0c0f72c6359ad6085", "subnet-087efb745876fa202", "subnet-0fe65694cdabca319"]
 }
 
 # Create an EKS cluster
 resource "aws_eks_cluster" "my_cluster" {
-  name     = "my-eks-cluster"
+  name     = "martinus-eks-cluster"
   role_arn = aws_iam_role.eks_cluster_role.arn
 
   vpc_config {
