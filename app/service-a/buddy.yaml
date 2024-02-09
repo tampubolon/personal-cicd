@@ -2,7 +2,6 @@
   definition_source: "REMOTE"
   remote_path: "/nodejs-buddy-pipeline.yaml"
   remote_branch: "setup-buddy"
-  remote_project_name: "pintu-infra"
   actions:
   - action: "npm test"
     type: "BUILD"
