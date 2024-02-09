@@ -1,0 +1,15 @@
+- pipeline: "test deploy"
+  definition_source: "REMOTE"
+  remote_path: "/nodejs-buddy-pipeline.yaml"
+  remote_branch: "setup-buddy"
+  remote_project_name: "pintu-infra"
+  - action: "npm test"
+    type: "BUILD"
+    docker_image_name: "library/node"
+    docker_image_tag: "20"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "npm test"
+    shell: "BASH"
+  
