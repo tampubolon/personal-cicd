@@ -24,5 +24,7 @@
       dockerfile_path: "Dockerfile"
       execute_commands:
         - "pwd"  # Print current working directory
-        - "ls -l"  # List files in the directory      
+        - "ls -l"  # List files in the directory     
+        - docker build -t test-pintu-nodejs"
+        - docker images 
       shell: "BASH"
