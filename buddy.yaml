@@ -16,15 +16,15 @@
         - "npm install"
       shell: "BASH"
     
-    - action: "Docker build"
-      type: "BUILD"
-      docker_image_name: "library/node"
-      docker_image_tag: "latest"      
-      working_directory: "/buddy/app/app/service-a"      
-      dockerfile_path: "Dockerfile"
-      execute_commands:
-        - "pwd"  # Print current working directory
-        - "ls -l"  # List files in the directory     
-        - "docker build -t test-pintu-nodejs ."
-        - "docker images" 
-      shell: "BASH"
+    - action: "Build Docker image"
+      type: "DOCKERFILE"
+      dockerfile_path: "app/service-a/Dockerfile"
+      context_path: "app/service-a"
+      do_not_prune_images: true
+      integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
+        execute_commands:
+          - "pwd"  # Print current working directory
+          - "ls -l"  # List files in the directory     
+          - "docker build -t test-pintu-nodejs ."
+          - "docker images" 
+        shell: "BASH"
