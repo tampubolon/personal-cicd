@@ -1,4 +1,5 @@
 - pipeline: "test deploy"
+  events: []
   actions:
   - action: "npm test"
     type: "BUILD"
