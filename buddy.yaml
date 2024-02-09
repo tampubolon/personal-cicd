@@ -18,7 +18,7 @@
     
     - action: "Docker build"
       type: "BUILD"
-      docker_image_name: "nodejs-pintu"
+      docker_image_name: "library/node"
       docker_image_tag: "latest"      
       working_directory: "/buddy/app/app/service-a"      
       dockerfile_path: "Dockerfile"
