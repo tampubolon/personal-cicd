@@ -22,4 +22,7 @@
       docker_image_tag: "latest"      
       working_directory: "/buddy/app/app/service-a"      
       dockerfile_path: "Dockerfile"
+      execute_commands:
+        - "pwd"  # Print current working directory
+        - "ls -l"  # List files in the directory      
       shell: "BASH"
