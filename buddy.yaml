@@ -22,6 +22,8 @@
       context_path: "app/service-a"
       do_not_prune_images: true
       integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
+      docker_image_name: "pintu-nodejs"
+      docker_image_tag: "latest"
       execute_commands:
         - "pwd"  # Print current working directory
         - "ls -l"  # List files in the directory
