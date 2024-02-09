@@ -1,7 +1,6 @@
 locals {
   vpc_id          = "vpc-0ca2d1fea23bcd3a9"
   public_subnets  = ["subnet-0c0f72c6359ad6085", "subnet-087efb745876fa202", "subnet-0fe65694cdabca319"]
-  private_subnets = ["subnet-0ba62fd249ca8dffe", "subnet-0bd942bd682d9b8c0", "subnet-0ae005bb4777fe7e1"]
 }
 
 # Create an EKS cluster
