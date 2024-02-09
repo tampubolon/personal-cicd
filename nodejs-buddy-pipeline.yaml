@@ -9,7 +9,11 @@
   actions:
     - action: "Run npm install"
       type: "BUILD"
-      working_directory: "/app/service-a"
+      working_directory: "/buddy/git-repo"
       docker_image_name: "node:latest"
       execute_commands:
-        - "npm install"  
+        - "npm install"
+      volume_mappings:
+        - "/:/buddy/git-repo"
+      cache_base_image: true
+      shell: "BASH"        
