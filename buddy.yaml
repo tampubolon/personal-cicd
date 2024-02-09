@@ -24,7 +24,5 @@
       integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
       execute_commands:
         - "pwd"  # Print current working directory
-        - "ls -l"  # List files in the directory     
-        - "docker build -t test-pintu-nodejs ."
-        - "docker images" 
+        - "ls -l"  # List files in the directory      
       shell: "BASH"
