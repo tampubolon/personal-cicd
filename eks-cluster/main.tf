@@ -1,6 +1,13 @@
 locals {
   vpc_id         = "vpc-0ca2d1fea23bcd3a9"
   public_subnets = ["subnet-0c0f72c6359ad6085", "subnet-087efb745876fa202", "subnet-0fe65694cdabca319"]
+
+  default_tags = {
+    Environment = "test"
+    Owner       = "sre-team"
+    ManagedBy   = "terraform"
+    TFProject   = "github.com/tampubolon/pintu-infra/eks-cluster"
+  }
 }
 
 # Create an EKS cluster
@@ -12,9 +19,10 @@ resource "aws_eks_cluster" "my_cluster" {
     subnet_ids = local.public_subnets
   }
 
-  tags = {
+  tags = merge({
     Name = "martinus-eks-cluster"
-  }
+    }, local.default_tags
+  )
 }
 
 # Create the IAM role for the EKS cluster
