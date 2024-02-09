@@ -25,6 +25,12 @@
       execute_commands:
         - "pwd"  # Print current working directory
         - "ls -l"  # List files in the directory
-        - "docker build -t pintu-nodejs:88 ."  # Set custom tag here
+        - "docker build -t pintu-nodejs:latest ."  # Set custom tag here
         - "docker image ls"      
       shell: "BASH"
+    
+    - action: "Push Docker image"
+      type: "DOCKER_PUSH"
+      docker_image_name: "pintu-nodejs"  # Name of the image to push
+      docker_image_tag: "latest"  # Tag of the image to push
+      integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"      
