@@ -22,9 +22,9 @@
       context_path: "app/service-a"
       do_not_prune_images: true
       integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
-        execute_commands:
-          - "pwd"  # Print current working directory
-          - "ls -l"  # List files in the directory     
-          - "docker build -t test-pintu-nodejs ."
-          - "docker images" 
-        shell: "BASH"
+      execute_commands:
+        - "pwd"  # Print current working directory
+        - "ls -l"  # List files in the directory     
+        - "docker build -t test-pintu-nodejs ."
+        - "docker images" 
+      shell: "BASH"
