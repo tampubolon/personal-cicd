@@ -25,5 +25,5 @@
       execute_commands:
         - "pwd"  # Print current working directory
         - "ls -l"  # List files in the directory
-        - "docker images"      
+        - "docker image ls"      
       shell: "BASH"
