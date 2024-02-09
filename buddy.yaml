@@ -20,6 +20,8 @@
       type: "DOCKERFILE"
       dockerfile_path: "app/service-a/Dockerfile"
       context_path: "app/service-a"
+      do_not_prune_images: false
+      integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
       docker_image_name: "pintu-nodejs"
       docker_image_tag: "latest"
       execute_commands:
