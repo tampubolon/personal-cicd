@@ -29,4 +29,6 @@
     
     - action: "Push Docker image"
       type: "DOCKER_PUSH"
-      integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"      
+      docker_image_tag: "$BUDDY_EXECUTION_ID"
+      repository: "tampubolon/pintu-nodejs"
+      integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"   
