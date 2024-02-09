@@ -1,0 +1,16 @@
+- pipeline: "test deploy"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/main"
+  actions:
+  - action: "npm test"
+    type: "BUILD"
+    working_directory: "/app/service-a"
+    docker_image_name: "library/node"
+    docker_image_tag: "20"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "npm test"
+    shell: "BASH"
