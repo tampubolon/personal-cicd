@@ -1,19 +1,25 @@
-- pipeline: "template"
-  on: "EVENT"
+- pipeline: "NodeJS Buddy Pipeline"
   events:
   - type: "PUSH"
     refs:
-    - "refs/heads/*"
-  priority: "NORMAL"
+    - "refs/heads/main"
+    - ":default"
+    - "refs/heads/setup-buddy"
+    - "refs/heads/eks-cluster"
+  fail_on_prepare_env_warning: true
+- pipeline: "test"
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/main"
   fail_on_prepare_env_warning: true
   actions:
-    - action: "Run npm install"
-      type: "BUILD"
-      working_directory: "/buddy/git-repo"
-      docker_image_name: "node:latest"
-      execute_commands:
-        - "npm install"
-      volume_mappings:
-        - "/:/buddy/git-repo"
-      cache_base_image: true
-      shell: "BASH"        
+  - action: "npm test"
+    type: "BUILD"
+    docker_image_name: "library/node"
+    docker_image_tag: "20"
+    execute_commands:
+    - "# yarn install"
+    - "npm install"
+    - "npm test"
+    shell: "BASH"

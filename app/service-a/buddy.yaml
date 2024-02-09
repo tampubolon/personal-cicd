@@ -1,5 +1,11 @@
 - pipeline: "test deploy"
-  events: []
+  events:
+  - type: "PUSH"
+    refs:
+    - "refs/heads/main"
+    - ":default"
+    - "refs/heads/setup-buddy"
+    - "refs/heads/eks-cluster"
   actions:
   - action: "npm test"
     type: "BUILD"
