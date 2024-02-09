@@ -2,7 +2,7 @@
   events:
   - type: "PUSH"
     refs:
-    - "refs/heads/main"
+    - "refs/heads/*"  # Match all branches
   actions:
   - action: "npm test"
     type: "BUILD"
