@@ -15,3 +15,12 @@
     - "# yarn install"
     - "npm install"
     shell: "BASH"
+  - action: "Docker build"
+    type: "BUILD"
+    docker_image_name: "pintu-test-nodejs"
+    dockerfile_path: "Dockerfile"
+    working_directory: "/buddy/app/app/service-a"
+    execute_commands:
+    - "pwd"  # Print current working directory
+    - "ls -l"  # List files in the directory    
+    shell: "BASH"    
