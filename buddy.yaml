@@ -24,5 +24,6 @@
       integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
       execute_commands:
         - "pwd"  # Print current working directory
-        - "ls -l"  # List files in the directory      
+        - "ls -l"  # List files in the directory
+        - "docker images"      
       shell: "BASH"
