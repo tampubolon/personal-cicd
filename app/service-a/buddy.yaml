@@ -1,5 +1,4 @@
 - pipeline: "test deploy"
-  definition_source: "REMOTE"
   actions:
   - action: "npm test"
     type: "BUILD"
