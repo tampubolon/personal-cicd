@@ -25,6 +25,6 @@
       execute_commands:
         - "pwd"  # Print current working directory
         - "ls -l"  # List files in the directory
-        - "docker build -t pintu-nodejs:latest ."  # Set custom tag here
+        - "docker build -t pintu-nodejs:88 ."  # Set custom tag here
         - "docker image ls"      
       shell: "BASH"
