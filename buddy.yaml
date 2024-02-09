@@ -9,6 +9,7 @@
     docker_image_name: "library/node"
     docker_image_tag: "20"
     execute_commands:
+    - cd app/service-a
     - "pwd"  # Print current working directory
     - "ls -l"  # List files in the directory    
     - "# yarn install"
