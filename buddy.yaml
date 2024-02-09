@@ -4,7 +4,7 @@
     refs:
     - "refs/heads/*"  # Match all branches
   actions:
-  - action: "npm test"
+  - action: "Interactive Shell"
     type: "BUILD"
     working_directory: "/app/service-a"
     docker_image_name: "library/node"
