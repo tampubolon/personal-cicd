@@ -1,5 +1,4 @@
 const amqplib = require('amqplib');
-const WebSocket = require('ws');
 const http = require('http');
 
 const amqp_url = process.env.CLOUDAMQP_URL || 'amqps://lfacpsmx:UrFwEeZVBOUOXDHCTKffS3if-QBBbbFT@octopus.rmq3.cloudamqp.com/lfacpsmx';
@@ -16,44 +15,53 @@ async function produce() {
     await ch.assertQueue(q, { durable: true });
     await ch.bindQueue(q, exch, rkey);
 
-    // Create WebSocket server
-    const wss = new WebSocket.Server({ noServer: true });
+    // Create HTTP server
+    const server = http.createServer();
 
-    // Function to generate and publish a random number every second
-    async function sendMessage() {
-        const randomNumber = Math.floor(Math.random() * 100);
-        const msg = randomNumber.toString();
-        console.log("Generated message:", msg); // Print the generated message to the terminal
+    server.on('request', (req, res) => {
+        if (req.url === '/messages') {
+            // Set headers to enable CORS (Cross-Origin Resource Sharing)
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Request-Method', '*');
+            res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+            res.setHeader('Access-Control-Allow-Headers', '*');
 
-        // Broadcast message to WebSocket clients
-        wss.clients.forEach(client => {
-            if (client.readyState === WebSocket.OPEN) {
-                client.send(msg);
+            // Set response headers
+            res.writeHead(200, {
+                'Content-Type': 'text/event-stream',
+                'Cache-Control': 'no-cache',
+                'Connection': 'keep-alive',
+            });
+
+            // Function to generate and send a random number every second
+            function sendMessage() {
+                const randomNumber = Math.floor(Math.random() * 100);
+                const msg = randomNumber.toString();
+                console.log("Generate random number and publish to RabbitMQ:", msg); // Print the generated message to the terminal
+
+                // Send message to RabbitMQ
+                ch.publish(exch, rkey, Buffer.from(msg));
+
+                // Send message to browser
+                res.write(`Generate random number and publish to RabbitMQ: ${msg}\n\n`); // Send the message as a server-sent event
+
+                setTimeout(sendMessage, 5000); // Call the function again after 5 seconds
             }
-        });
 
-        await ch.publish(exch, rkey, Buffer.from(msg));
-        setTimeout(sendMessage, 5000); // Call the function again after 5 seconds
-    }
+            // Start sending messages
+            sendMessage(); // Initial call to start sending messages
 
-    // Start sending messages
-    sendMessage(); // Initial call to start sending messages
+            // Handle client disconnect
+            req.on('close', () => {
+                console.log('Client disconnected');
+                res.end(); // End response when client disconnects
+            });
+        }
+    });
 
-    return wss;
+    server.listen(8080, () => {
+        console.log('Server running at http://localhost:8080/');
+    });
 }
 
-// Create HTTP server
-const server = http.createServer();
-const wssPromise = produce();
-
-server.on('upgrade', (request, socket, head) => {
-    wssPromise.then(wss => {
-        wss.handleUpgrade(request, socket, head, ws => {
-            wss.emit('connection', ws, request);
-        });
-    }).catch(console.error);
-});
-
-server.listen(8080, () => {
-    console.log('Server running at http://localhost:8080/');
-});
+produce();
