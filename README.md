@@ -3,7 +3,7 @@ Github Project for Technical Assessment
 
 
 # Microservices architecture
-service A => RabbitMQ broker => Service B
+`service A => RabbitMQ broker => Service B`
 
 Service A is written in NodeJS
 Service B is written in Golang
@@ -18,6 +18,7 @@ Docker image used by service A: https://hub.docker.com/r/mar3tin8/pintu-nodejs/t
 Docker image used by service B: https://hub.docker.com/r/mar3tin8/pintu-golang/tags
 
 
+#
 # Infrastructure Setup
 Infrastructure stack used in this project:
 - AWS VPC
