@@ -36,3 +36,18 @@
     - "kubectl -n app-node get pod"    
     kubectl_version: "latest"
     integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
+  - action: "Run Helm CLI"
+    type: "HELM"
+    cluster: "martinus-eks-cluster"
+    role_arn: "arn:aws:iam::637423549122:role/atlantis-server"
+    region: "ap-southeast-1"
+    working_directory: "/buddy/app/app/service-a"    
+    execute_commands:
+    - "# kubectl apply -f ./mymanifest.yaml"
+    - "helm template martinus-nodejs-app ./chart"
+    setup_commands:
+    - "helm plugin install https://github.com/hypnoglow/helm-s3.git --version 0.7.0"
+    - "helm plugin install https://github.com/hayorov/helm-gcs --version 0.2.1"
+    kubectl_version: "latest"
+    helm_version: "v3.14.0"
+    integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
