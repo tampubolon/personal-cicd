@@ -25,7 +25,7 @@
   - action: "Push Docker image"
     type: "DOCKER_PUSH"
     #docker_image_tag: "$BUDDY_EXECUTION_ID"
-    docker_image_tag: "$latest"
+    docker_image_tag: "latest"
     repository: "mar3tin8/pintu-nodejs"
     integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
   - action: "Generate K8S Manifest with HELM"
@@ -69,4 +69,4 @@
       type: "DOCKERFILE"      
       dockerfile_path: "/buddy/app/app/service-b/Dockerfile"
       context_path: "/buddy/app/app/service-b/"    
-    # Add more actions as needed
+    # Add more actions as neede
