@@ -31,3 +31,9 @@
     execute_commands:
     - "kubectl get ns"
     shell: "BASH"
+  - action: "Apply Kubernetes manifest"
+    type: "RUN_SCRIPT"
+    working_directory: "/buddy/app/app/service-a"
+    execute_commands:
+    - "kubectl get ns"
+    shell: "BASH"    
