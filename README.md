@@ -40,7 +40,7 @@ Example:
 Buddy is used in this project as the CICD pipeline, the buddy project is publicly accessible after creating an account in Buddy. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines
 
 Helm is used to generate the Kubernetes manifest of each service.
-Service A Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-a/chart
-Service B Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b
-Service A Kubernetes manifest: https://github.com/tampubolon/pintu-infra/blob/main/app/service-a/k8s.yaml
-Service B Kubernetes manifest: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b/k8s.yaml
+- Service A Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-a/chart
+- Service B Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b
+- Service A Kubernetes manifest: https://github.com/tampubolon/pintu-infra/blob/main/app/service-a/k8s.yaml
+- Service B Kubernetes manifest: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b/k8s.yaml
