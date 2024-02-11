@@ -36,8 +36,3 @@
     - "kubectl -n app-node get pod"    
     kubectl_version: "latest"
     integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
-  - action: "Run Helm template"
-    type: "CUSTOM"
-    working_directory: "/buddy/app/app/service-a"
-    execute_commands:
-    - "helm template my-nodejs-app ./nodejs-chart"
