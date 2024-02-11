@@ -40,18 +40,4 @@
     type: "CUSTOM"
     working_directory: "/buddy/app/app/service-a"
     execute_commands:
-      - "helm template my-nodejs-app ./nodejs-chart"
-
-  #- action: "Deploy to Kubernetes"
-  #  type: "KUBERNETES_CLI"
-  #  working_directory: "/buddy/app/app/service-a"    
-  #  role_arn: "arn:aws:iam::637423549122:role/atlantis-server"
-  #  region: "ap-southeast-1"
-  #  execute_commands:
-  #  - "cd app/service-a"
-  #  - "pwd"
-  #  - "ls"    
-  #  - "kubectl apply -f ./k8s.yaml --validate=false"
-  #  kubectl_version: "latest"
-  #  integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
-    
+    - "helm template my-nodejs-app ./nodejs-chart"
