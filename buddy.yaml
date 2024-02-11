@@ -33,6 +33,7 @@
     region: "ap-southeast-1"
     execute_commands:
     - "kubectl get ns"
+    - "kubectl -n app-node get pod"    
     kubectl_version: "latest"
     integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
   - action: "Deploy to Kubernetes"
