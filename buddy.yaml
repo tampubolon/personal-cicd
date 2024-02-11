@@ -3,6 +3,8 @@
   - type: "PUSH"
     refs:
     - "refs/heads/*"
+    paths:
+    - "/buddy/app/app/service-a/*"    
   actions:
   - action: "run npm install"
     type: "BUILD"
