@@ -1,4 +1,4 @@
-- pipeline: "test deploy"
+- pipeline: "NodeJS CICD Pipeline"
   events:
   - type: "PUSH"
     refs:
