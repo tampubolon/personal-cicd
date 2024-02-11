@@ -43,13 +43,13 @@
     region: "ap-southeast-1"
     working_directory: "/buddy/app/app/service-a"    
     execute_commands:
+    - "pwd"
+    - "ls -l"    
     - "# kubectl apply -f ./mymanifest.yaml"
     - "helm template martinus-nodejs-app ./chart"
     setup_commands:
     - "helm plugin install https://github.com/hypnoglow/helm-s3.git --version 0.7.0"
     - "helm plugin install https://github.com/hayorov/helm-gcs --version 0.2.1"
-    - "pwd"
-    - "ls -l"
     kubectl_version: "latest"
     helm_version: "v3.14.0"
     integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
