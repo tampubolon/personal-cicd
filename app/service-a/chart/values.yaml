@@ -1,0 +1,17 @@
+deployment:
+  namespace: "pintu-nodejs" 
+
+replicaCount: 1
+image:
+  repository: mar3tin8/pintu-nodejs
+  tag: "19"
+  pullPolicy: Always
+
+service:
+  namespace: "pintu-nodejs" 
+  type: NodePort
+  port: 80
+
+ingress:
+  namespace: "pintu-nodejs" 
+  enabled: true
