@@ -15,6 +15,27 @@ async function produce() {
     await ch.assertQueue(q, { durable: true });
     await ch.bindQueue(q, exch, rkey);
 
+    // Array to hold connected clients
+    const clients = [];
+
+    // Function to generate and send a random number every second
+    function sendMessage() {
+        const randomNumber = Math.floor(Math.random() * 100);
+        const msg = randomNumber.toString();
+        console.log("Generate random number and publish to RabbitMQ:", msg); // Print the generated message to the terminal
+
+        // Send message to RabbitMQ
+        ch.publish(exch, rkey, Buffer.from(msg));
+
+        // Send message to all connected clients
+        clients.forEach(client => client.res.write(`Generate random number and publish to RabbitMQ:: ${msg}\n\n`));
+
+        setTimeout(sendMessage, 5000); // Call the function again after 5 seconds
+    }
+
+    // Start sending messages
+    sendMessage(); // Initial call to start sending messages
+
     // Create HTTP server
     const server = http.createServer();
 
@@ -26,34 +47,24 @@ async function produce() {
             res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
             res.setHeader('Access-Control-Allow-Headers', '*');
 
-            // Set response headers
+            // Set response headers for SSE
             res.writeHead(200, {
                 'Content-Type': 'text/event-stream',
                 'Cache-Control': 'no-cache',
                 'Connection': 'keep-alive',
             });
 
-            // Function to generate and send a random number every second
-            function sendMessage() {
-                const randomNumber = Math.floor(Math.random() * 100);
-                const msg = randomNumber.toString();
-                console.log("Generate random number and publish to RabbitMQ:", msg); // Print the generated message to the terminal
-
-                // Send message to RabbitMQ
-                ch.publish(exch, rkey, Buffer.from(msg));
-
-                // Send message to browser
-                res.write(`Generate random number and publish to RabbitMQ: ${msg}\n\n`); // Send the message as a server-sent event
-
-                setTimeout(sendMessage, 5000); // Call the function again after 5 seconds
-            }
-
-            // Start sending messages
-            sendMessage(); // Initial call to start sending messages
+            // Push this client's response object to the clients array
+            clients.push({ res });
 
             // Handle client disconnect
             req.on('close', () => {
                 console.log('Client disconnected');
+                // Remove this client's response object from the clients array
+                const index = clients.findIndex(client => client.res === res);
+                if (index !== -1) {
+                    clients.splice(index, 1);
+                }
                 res.end(); // End response when client disconnects
             });
         }
