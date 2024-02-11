@@ -1,0 +1,12 @@
+replicaCount: 1
+image:
+  repository: mar3tin8/pintu-nodejs
+  tag: "31"
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 80
+
+ingress:
+  enabled: true
