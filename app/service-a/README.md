@@ -6,3 +6,5 @@ RabbitMQ broker is publicly accessible from: octopus.rmq3.cloudamqp.com
 
 This service is publicly accessible from:
 http://k8s-pintunod-martinus-443ba54739-1459636462.ap-southeast-1.elb.amazonaws.com/messages
+
+Docker image used by this service: https://hub.docker.com/r/mar3tin8/pintu-nodejs/tags
