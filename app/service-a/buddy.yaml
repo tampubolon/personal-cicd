@@ -25,3 +25,9 @@
     docker_image_tag: "$BUDDY_EXECUTION_ID"
     repository: "mar3tin8/pintu-nodejs"
     integration_hash: "EYgLPQZOpnelXGGreKBzyVXvAW"
+  - action: "Apply Kubernetes manifest"
+    type: "RUN_SCRIPT"
+    working_directory: "/buddy/app/app/service-a"
+    execute_commands:
+    - "kubectl get ns"
+    shell: "BASH"
