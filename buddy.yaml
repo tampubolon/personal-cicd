@@ -63,7 +63,7 @@
     refs:
     - "refs/heads/*"
     paths:
-    - "/buddy/app/app/service-a/*"    
+    - "/buddy/app/app/service-b/*"    
   actions:
     - action: "Build Golang Image"
       type: "DOCKERFILE"      
