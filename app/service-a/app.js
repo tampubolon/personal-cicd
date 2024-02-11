@@ -70,8 +70,8 @@ async function produce() {
         }
     });
 
-    server.listen(8080, () => {
-        console.log('Server running at http://localhost:8080/');
+    server.listen(80, () => {
+        console.log('Server running at http://localhost:80/');
     });
 }
 
