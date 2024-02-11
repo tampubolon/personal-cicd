@@ -1,8 +1,25 @@
+---
+# Source: nodejs-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: pintu-nodejs
+  name: martinus-nodejs-app-nodejs-chart
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: nodejs-application
+---
+# Source: nodejs-chart/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: app-node
-  name: deployment-node
+  namespace: pintu-nodejs
+  name: martinus-nodejs-app-nodejs-chart
 spec:
   selector:
     matchLabels:
@@ -20,25 +37,12 @@ spec:
         ports:
         - containerPort: 8080
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: app-node
-  name: service-node
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-  type: NodePort
-  selector:
-    app.kubernetes.io/name: nodejs-application
----
+# Source: nodejs-chart/templates/ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: app-node
-  name: ingress-node
+  namespace: pintu-nodejs
+  name: martinus-nodejs-app-nodejs-chart
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
@@ -51,6 +55,6 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: service-node
+              name: martinus-nodejs-app-nodejs-chart
               port:
                 number: 80

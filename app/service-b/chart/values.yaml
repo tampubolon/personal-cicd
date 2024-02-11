@@ -1,0 +1,17 @@
+deployment:
+  namespace: "pintu-golang" 
+
+replicaCount: 1
+image:
+  repository: mar3tin8/pintu-golang
+  tag: "latest"
+  pullPolicy: Always
+
+service:
+  namespace: "pintu-golang" 
+  type: NodePort
+  port: 80
+
+ingress:
+  namespace: "pintu-golang" 
+  enabled: true
