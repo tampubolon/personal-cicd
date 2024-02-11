@@ -1,5 +1,5 @@
 deployment:
-  namespace: "test" 
+  namespace: "pintu-nodejs" 
 
 replicaCount: 1
 image:
@@ -8,10 +8,10 @@ image:
   pullPolicy: Always
 
 service:
-  namespace: "test" 
+  namespace: "pintu-nodejs" 
   type: NodePort
   port: 80
 
 ingress:
-  namespace: "test" 
+  namespace: "pintu-nodejs" 
   enabled: true
