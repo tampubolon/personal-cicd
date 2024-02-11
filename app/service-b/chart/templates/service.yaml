@@ -5,9 +5,9 @@ metadata:
   name: {{ include "golang-chart.fullname" . }}
 spec:
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 80 # Expose port 80 for external access
+      targetPort: 8080 # Route traffic to port 8080 on your pods
       protocol: TCP
-  type: NodePort
+  type: {{ .Values.service.type }}
   selector:
     app.kubernetes.io/name: golang-application

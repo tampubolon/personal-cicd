@@ -4,7 +4,7 @@ deployment:
 replicaCount: 1
 image:
   repository: mar3tin8/pintu-golang
-  tag: "1"
+  tag: "latest"
   pullPolicy: Always
 
 service:
