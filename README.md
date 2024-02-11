@@ -5,17 +5,17 @@ Github Project for Technical Assessment
 # Microservices architecture
 `service A => RabbitMQ broker => Service B`
 
-Service A is written in NodeJS
-Service B is written in Golang
+- Service A is written in NodeJS
+- Service B is written in Golang
 
 Service is A continuously generating random integer, and publish it to RabbitMQ broker.
 Service B consumes the generated integer from RabbitMQ, and then compute the factorial of the integer.
 
-Service A is publicly accessible from: http://k8s-pintunod-martinus-443ba54739-1459636462.ap-southeast-1.elb.amazonaws.com/messages
+- Service A is publicly accessible from: http://k8s-pintunod-martinus-443ba54739-1459636462.ap-southeast-1.elb.- amazonaws.com/messages
 Service B is publicly accessible from: http://k8s-pintugol-martinus-ea50928746-1405819565.ap-southeast-1.elb.amazonaws.com/events
 
-Docker image used by service A: https://hub.docker.com/r/mar3tin8/pintu-nodejs/tags
-Docker image used by service B: https://hub.docker.com/r/mar3tin8/pintu-golang/tags
+- Docker image used by service A: https://hub.docker.com/r/mar3tin8/pintu-nodejs/tags
+- Docker image used by service B: https://hub.docker.com/r/mar3tin8/pintu-golang/tags
 
 
 #
