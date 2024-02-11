@@ -1,0 +1,4 @@
+apiVersion: v2
+name: golang-chart
+description: A Helm chart for deploying a Golang application
+version: 0.1.0
