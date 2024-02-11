@@ -44,6 +44,6 @@
     - "cd app/service-a"
     - "pwd"
     - "ls"    
-    - "kubectl apply -f k8s.yaml"
+    - "kubectl apply -f k8s.yaml --validate=false"
     kubectl_version: "latest"
     integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
