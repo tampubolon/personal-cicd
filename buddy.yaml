@@ -42,6 +42,8 @@
     role_arn: "arn:aws:iam::637423549122:role/atlantis-server"
     region: "ap-southeast-1"
     execute_commands:
+    - "pwd"
+    - "ls"    
     - "kubectl apply -f k8s.yaml"
     kubectl_version: "latest"
     integration_hash: "E89kpPy7LDdw2WWMb1YKXAxljV"
