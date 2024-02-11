@@ -43,7 +43,7 @@
     region: "ap-southeast-1"
     working_directory: "/buddy/app/app/service-a"    
     execute_commands:
-    - "cd app/service/a"    
+    - "cd app/service-a"    
     - "pwd"
     - "ls -l"    
     - "# kubectl apply -f ./mymanifest.yaml"
