@@ -4,7 +4,7 @@ deployment:
 replicaCount: 1
 image:
   repository: mar3tin8/pintu-nodejs
-  tag: "31"
+  tag: "19"
   pullPolicy: Always
 
 service:
