@@ -37,14 +37,14 @@ Example:
 - RabbitMQ provisioning: https://github.com/tampubolon/pintu-infra/pull/1#issuecomment-1931198051
 ![alt text](images/rmq.png)
 - VPC provisioning: https://github.com/tampubolon/pintu-infra/pull/2#issuecomment-1931319010
-![alt text](vpc-1.png)
-![alt text](vpc-2.png)
+![alt text](images/vpc-1.png)
+![alt text](images/vpc-2.png)
 - EKS cluster provisioning: https://github.com/tampubolon/pintu-infra/pull/3#issuecomment-1935430398
-![alt text](eks.png)
+![alt text](images/eks.png)
 
 ## Buddy CICD
 [Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
-![alt text](buddy.png)
+![alt text](images/buddy.png)
 
 
 ## Helm
