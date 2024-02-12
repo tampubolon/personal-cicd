@@ -1,8 +1,8 @@
-## pintu-infra
+# pintu-infra
 Github Project for Technical Assessment
 
 #
-## Microservices architecture
+# Microservices architecture
 `service A => RabbitMQ broker => Service B`
 
 - Service A is written in NodeJS
@@ -19,7 +19,7 @@ Service B consumes the generated integer from RabbitMQ, and then compute factori
 
 
 #
-## Infrastructure Setup
+# Infrastructure Setup
 Infrastructure stack used in this project:
 - AWS VPC
 - EKS Cluster
@@ -30,25 +30,24 @@ Infrastructure stack used in this project:
 - Helm
 - Buddy Pipeline
 
-# Atlantis
+## Atlantis
 VPC, EKS cluster and RabbitMQ broker was provisioned by Terraform.
 Atlantis is utilized to automate terraform plan review. By using atlantis, terraform plan can be shared and ease other enginer to review the terraform PR.
 Example:
 - RabbitMQ provisioning: https://github.com/tampubolon/pintu-infra/pull/1#issuecomment-1931198051
-![alt text](rmq
-.png)
+![alt text](images/rmq.png)
 - VPC provisioning: https://github.com/tampubolon/pintu-infra/pull/2#issuecomment-1931319010
 ![alt text](vpc-1.png)
 ![alt text](vpc-2.png)
 - EKS cluster provisioning: https://github.com/tampubolon/pintu-infra/pull/3#issuecomment-1935430398
 ![alt text](eks.png)
 
-# Buddy CICD
+## Buddy CICD
 [Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
 ![alt text](buddy.png)
 
 
-# Helm
+## Helm
 Helm is used to generate the Kubernetes manifest of each service.
 - Service A Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-a/chart
 - Service B Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b/chart
