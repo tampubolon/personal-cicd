@@ -9,7 +9,7 @@ Github Project for Technical Assessment
 - Service B is written in Golang
 
 Service is A continuously generating random integer, and publish it to RabbitMQ broker.
-Service B consumes the generated integer from RabbitMQ, and then compute the factorial of the integer.
+Service B consumes the generated integer from RabbitMQ, and then compute factorial of the integer.
 
 - Service A is publicly accessible from: http://k8s-pintunod-martinus-443ba54739-1459636462.ap-southeast-1.elb.amazonaws.com/messages
 - Service B is publicly accessible from: http://k8s-pintugol-martinus-ea50928746-1405819565.ap-southeast-1.elb.amazonaws.com/events
