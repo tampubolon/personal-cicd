@@ -1,8 +1,8 @@
-# pintu-infra
+## pintu-infra
 Github Project for Technical Assessment
 
 
-# Microservices architecture
+## Microservices architecture
 `service A => RabbitMQ broker => Service B`
 
 - Service A is written in NodeJS
@@ -19,7 +19,7 @@ Service B consumes the generated integer from RabbitMQ, and then compute factori
 
 
 #
-# Infrastructure Setup
+## Infrastructure Setup
 Infrastructure stack used in this project:
 - AWS VPC
 - EKS Cluster
@@ -39,9 +39,10 @@ Example:
 - EKS cluster provisioning: https://github.com/tampubolon/pintu-infra/pull/3#issuecomment-1935430398
 
 [Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
+![alt text](image.png)
 
 Helm is used to generate the Kubernetes manifest of each service.
 - Service A Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-a/chart
-- Service B Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b
+- Service B Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b/chart
 - Service A Kubernetes manifest: https://github.com/tampubolon/pintu-infra/blob/main/app/service-a/k8s.yaml
 - Service B Kubernetes manifest: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b/k8s.yaml
