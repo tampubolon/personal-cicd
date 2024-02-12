@@ -9,7 +9,7 @@ By Martinus Tampubolon
 - Service A is written in NodeJS
 - Service B is written in Golang
 
-Service is A continuously generating random integer every 5 seconds, and publish it to RabbitMQ broker.
+Service is A continuously generating a random integer every 5 seconds, and publish it to RabbitMQ broker.
 Service B consumes the generated integer from RabbitMQ, and then compute factorial of the integer.
 
 - Service A is publicly accessible from: http://k8s-pintunod-martinus-443ba54739-1459636462.ap-southeast-1.elb.amazonaws.com/messages
