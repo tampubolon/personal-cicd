@@ -6,8 +6,8 @@ By Martinus Tampubolon
 # Microservices architecture
 `service A => RabbitMQ broker => Service B`
 
-- Service A is written in NodeJS
-- Service B is written in Golang
+- Service A is written in NodeJS (`/app/service-a`)
+- Service B is written in Golang (`/app/service-b`)
 
 Service is A continuously generating a random integer every 5 seconds, and publish it to RabbitMQ broker.
 Service B consumes the generated integer from RabbitMQ, and then compute factorial of the integer.
@@ -35,16 +35,16 @@ Infrastructure stack used in this project:
 VPC, EKS cluster and RabbitMQ broker was provisioned by Terraform.
 Atlantis is utilized to automate terraform plan review. By using `atlantis`, terraform plan can be shared and ease other enginer to review the terraform PR.
 Example:
-- RabbitMQ provisioning: https://github.com/tampubolon/pintu-infra/pull/1#issuecomment-1931198051
+- PR for provisioning RabbitMQ: https://github.com/tampubolon/pintu-infra/pull/1#issuecomment-1931198051
 ![alt text](images/rmq.png)
-- VPC provisioning: https://github.com/tampubolon/pintu-infra/pull/2#issuecomment-1931319010
+- PR for provisioning VPC: https://github.com/tampubolon/pintu-infra/pull/2#issuecomment-1931319010
 ![alt text](images/vpc-1.png)
 ![alt text](images/vpc-2.png)
-- EKS cluster provisioning: https://github.com/tampubolon/pintu-infra/pull/3#issuecomment-1935430398
+- PR for provisioning EKS cluster: https://github.com/tampubolon/pintu-infra/pull/3#issuecomment-1935430398
 ![alt text](images/eks.png)
 
 ### Buddy CICD
-[Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
+[Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy pipeline URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
 ![alt text](images/buddy.png)
 
 
