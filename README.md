@@ -40,6 +40,7 @@ Example:
 
 [Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
 ![alt text](image.png)
+![alt text](image.png)
 
 Helm is used to generate the Kubernetes manifest of each service.
 - Service A Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-a/chart
