@@ -30,9 +30,9 @@ Infrastructure stack used in this project:
 - Helm
 - Buddy Pipeline
 
-## Atlantis
+## Atlantis & Terraform
 VPC, EKS cluster and RabbitMQ broker was provisioned by Terraform.
-Atlantis is utilized to automate terraform plan review. By using atlantis, terraform plan can be shared and ease other enginer to review the terraform PR.
+Atlantis is utilized to automate terraform plan review. By using `atlantis`, terraform plan can be shared and ease other enginer to review the terraform PR.
 Example:
 - RabbitMQ provisioning: https://github.com/tampubolon/pintu-infra/pull/1#issuecomment-1931198051
 ![alt text](images/rmq.png)
