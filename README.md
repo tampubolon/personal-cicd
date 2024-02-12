@@ -8,7 +8,7 @@ Github Project for Technical Assessment
 - Service A is written in NodeJS
 - Service B is written in Golang
 
-Service is A continuously generating random integer, and publish it to RabbitMQ broker.
+Service is A continuously generating random integer every 5 seconds, and publish it to RabbitMQ broker.
 Service B consumes the generated integer from RabbitMQ, and then compute factorial of the integer.
 
 - Service A is publicly accessible from: http://k8s-pintunod-martinus-443ba54739-1459636462.ap-southeast-1.elb.amazonaws.com/messages
@@ -30,7 +30,7 @@ Infrastructure stack used in this project:
 - Helm
 - Buddy Pipeline
 
-## Atlantis & Terraform
+### Atlantis & Terraform
 VPC, EKS cluster and RabbitMQ broker was provisioned by Terraform.
 Atlantis is utilized to automate terraform plan review. By using `atlantis`, terraform plan can be shared and ease other enginer to review the terraform PR.
 Example:
@@ -42,12 +42,12 @@ Example:
 - EKS cluster provisioning: https://github.com/tampubolon/pintu-infra/pull/3#issuecomment-1935430398
 ![alt text](images/eks.png)
 
-## Buddy CICD
+### Buddy CICD
 [Buddy](https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222) is used in this project as the CICD pipeline, the buddy project is publicly accessible. Buddy project URL: https://app.buddy.works/test-pintu/app/pipelines/pipeline/483222. Buddy CICD pipeline is configure by this [yaml file](https://github.com/tampubolon/pintu-infra/blob/main/buddy.yaml)
 ![alt text](images/buddy.png)
 
 
-## Helm
+### Helm
 Helm is used to generate the Kubernetes manifest of each service.
 - Service A Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-a/chart
 - Service B Helm chart: https://github.com/tampubolon/pintu-infra/tree/main/app/service-b/chart
