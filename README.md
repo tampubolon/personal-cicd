@@ -1,5 +1,6 @@
-# pintu-infra
-Github Project for Technical Assessment
+# PINTU-INFRA (SRE)
+Github Project for SRE Technical Assessment.
+By Martinus Tampubolon
 
 #
 # Microservices architecture
